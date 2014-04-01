@@ -6,14 +6,14 @@
   
   <div class="table-wrapper visualization">
       <section class="table-column-left bg-blue-dark">
-        <h2 class="bg-orange">
+        <h2 class="bg-teal">
           Your Savings Last Month
         </h2>
         <img src="images/savings-graph.png" alt="Your Savings Last Month">
       </section>
       
-      <section class="table-column-center bg-warm-gray">
-        <h2 class="bg-darker">
+      <section class="table-column-center bg-teal-dark">
+        <h2 class="bg-warm-gray-dark">
           Offsets <span class="visible-xs">the energy usage of</span>
         </h2>
         <div class="btn-group-vertical">
@@ -29,7 +29,7 @@
         </div>
       </section>
       
-      <section class="table-column-right bg-mustard">
+      <section class="table-column-right bg-teal">
         <h2>
           <span ng-show="currentViz == 'cars'">
             Six Cars
@@ -54,7 +54,7 @@
             </div>
             <img src="images/icon-tree.png" ng-repeat="i in trees.notsaved">
           </div>
-          <img class="kittens" src="http://placekitten.com/g/380/300" ng-show="currentViz == 'carbon'">
+          <img class="kittens" src="images/300.jpg" ng-show="currentViz == 'carbon'">
         </div>
       </section>
   </div> 
@@ -74,7 +74,7 @@
         </span>
       </h3>
       <p class="lead footer-copy">
-        Great job! You used 573 kWH last month, compared to 791 kWh in the same month last year. 
+        <strong>Great job! <span class="glyphicon glyphicon-thumbs-up"></span></strong><br> You used 573 kWH last month, compared to 791 kWh in the same month last year. 
         <span ng-show="currentViz == 'cars'">
           The resulting savings is enough to offset the energy consumption of six average-size cars for one month.
         </span>

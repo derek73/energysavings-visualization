@@ -8,7 +8,9 @@ $mint: #a8dba8;
 $limegreen: #c1db23;
 $blue-dark: #334d5c;
 $warm-gray: #a0a081;
+$warm-gray-dark: darken($warm-gray, 10%);
 $teal: #52b2ad;
+$teal-dark: #3B8686;
 
 $jumbotron-bg: $cream;
 
@@ -17,10 +19,9 @@ $font-family-sans-serif:  "museo-sans","Helvetica Neue", Helvetica, Arial, sans-
 $font-family-serif:       "museo-slab",Georgia, "Times New Roman", Times, serif;
 $headings-font-family: $font-family-serif;
 $headings-font-weight: 700;
-$grid-gutter-width: 0;
 $text-color: $blue-dark;
 $text-muted: $mint;
-$border-radius-base: 0;
+//$border-radius-base: 0;
 
 
 @import 'sass-bootstrap/lib/bootstrap';
@@ -42,9 +43,12 @@ body {
   color: white; 
 }
 .bg-mint { background-color: $mint;}
+.bg-teal { background-color: $teal; color: white;}
+.bg-teal-dark { background-color: $teal-dark; color: white;}
 .bg-limegreen { background-color: $limegreen;}
 .bg-blue-dark { background-color: $blue-dark; color: white;}
-.bg-warm-gray { background-color: $warm-gray; color: $cream;}
+.bg-warm-gray { background-color: $warm-gray;}
+.bg-warm-gray-dark { background-color: $warm-gray-dark;}
 .bg-darker { background-color: rgba(black, 0.2);}
 
 @media (min-width: $screen-sm-min) {
@@ -92,6 +96,8 @@ img {
   background: $cream;
   padding: 35px 50px 50px;
   margin: 70px;
+  border-radius: 10px;
+  
 }
 .repeat-images {
   &.cars img {
@@ -114,12 +120,16 @@ h1 {
   margin-bottom: 20px;
   border-bottom: 1px solid darken($cream, 15%);
 }
+.footer-copy {
+  max-width: 650px;
+  margin: 0 auto;
+}
 h3 {
   text-transform: uppercase;
   font-weight: 500;
   font-size: 18px;
   color: $orange;
-  margin-top: 0;
+  margin-bottom: 30px;
   strong {
     font-weight: 900;
     color: darken($orange, 10%);
@@ -128,12 +138,12 @@ h3 {
 }
 .visualization {
   margin-bottom: 20px;
-  
   section {
     h2 {
       margin: 0;
       font-size: 18px;
       font-weight: 300;
+      color: white;
       padding: 8px;
       text-align:center;
       min-height: 38px;
@@ -150,9 +160,12 @@ h3 {
     padding-bottom: 0;
   }
   
+  margin: 10px;
+  
   .btn {
-    background-color: transparent;
+    background-color: $warm-gray;
     text-align: center;
+    margin-bottom: 3px;
     
     img {
       width: 50%;
@@ -184,12 +197,14 @@ h3 {
       // inline block background looks bad
       // just leaving them off mobile
       &:hover {
-        background-color: rgba(white, 0.1);
+        background-color: lighten($warm-gray, 5%);
         transition: background 0.15s ease-in-out;
       }
+      
+      // active menu selection
       &:active,
       &.active {
-        background-color: $limegreen;
+        background-color: $mint;
         transition: background 0.15s ease-in-out;
       }
       
@@ -231,10 +246,6 @@ h3 {
 .saved-outline {
   padding: 5px 0;
   margin-bottom: 10px;
-  background: $orange;
+  background: $mint;
 }
 img.kittens {  width: 100%; }
-.footer-copy {
-  max-width: 650px;
-  margin: 0 auto;
-}
