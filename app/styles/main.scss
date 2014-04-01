@@ -1,0 +1,240 @@
+$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+
+// color names
+$cream: #f0ebbf;
+$orange: #ff4747;
+$mustard: #efc94c;
+$mint: #a8dba8;
+$limegreen: #c1db23;
+$blue-dark: #334d5c;
+$warm-gray: #a0a081;
+$teal: #52b2ad;
+
+$jumbotron-bg: $cream;
+
+// Bootstrap variables
+$font-family-sans-serif:  "museo-sans","Helvetica Neue", Helvetica, Arial, sans-serif;
+$font-family-serif:       "museo-slab",Georgia, "Times New Roman", Times, serif;
+$headings-font-family: $font-family-serif;
+$headings-font-weight: 700;
+$grid-gutter-width: 0;
+$text-color: $blue-dark;
+$text-muted: $mint;
+$border-radius-base: 0;
+
+
+@import 'sass-bootstrap/lib/bootstrap';
+
+// angular uses empty href attrs so need to add pointer
+.nav, .pagination, .carousel, .panel-title a { cursor: pointer; }
+html,
+body {
+  height: 100%;
+}
+body {
+  text-align: center;
+}
+
+.bg-cream { background-color: $cream;}
+.bg-mustard { background-color: $mustard;}
+.bg-orange { 
+  background-color: $orange;
+  color: white; 
+}
+.bg-mint { background-color: $mint;}
+.bg-limegreen { background-color: $limegreen;}
+.bg-blue-dark { background-color: $blue-dark; color: white;}
+.bg-warm-gray { background-color: $warm-gray; color: $cream;}
+.bg-darker { background-color: rgba(black, 0.2);}
+
+@media (min-width: $screen-sm-min) {
+  /* Extra markup and styles for table-esque vertical centering */
+  .table-wrapper {
+    display: table;
+    width: 100%;
+    height:     calc(100% - 100px); /* For at least Firefox */
+    min-height: calc(100% - 100px);
+    
+    section {
+      vertical-align: top;
+      display: table-cell;
+      border-left: 6px solid $cream;
+      &:first-child {
+        border-left: 0px;
+      }
+    }
+  }
+  // the 3 columns
+  .table-column-left { 
+    width: 45%;
+    img {  width: 100%; }
+    
+  }
+  .table-column-center {
+     width: 20%;
+  }
+  .table-column-right { width: 35%;}
+}
+
+// override bootstrap's hide doesn't work on spans
+span.visible-xs {
+  display: inline !important;
+  @media (min-width: $screen-sm-min) {
+    display: none !important;
+  }
+}
+
+img {
+  @extend .img-responsive;
+}
+
+.wrapper {
+  background: $cream;
+  padding: 35px 50px 50px;
+  margin: 70px;
+}
+.repeat-images {
+  &.cars img {
+    margin:8px 10px;
+  }
+  img {
+    width: calc(30% - 20px);
+    height: auto;
+    display: inline;
+    margin: 5px 10px;
+  }
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 20px;
+  text-align: center;
+  font-family: $font-family-sans-serif;
+  margin-top: 0;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid darken($cream, 15%);
+}
+h3 {
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 18px;
+  color: $orange;
+  margin-top: 0;
+  strong {
+    font-weight: 900;
+    color: darken($orange, 10%);
+    text-shadow: 2px 2px 0 rgba(white, 0.5);
+  }
+}
+.visualization {
+  margin-bottom: 20px;
+  
+  section {
+    h2 {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 300;
+      padding: 8px;
+      text-align:center;
+      min-height: 38px;
+    }
+  }
+}
+
+
+.btn-group-vertical {
+  
+  // add space for the down arrow on mobile
+  padding-bottom: 30px;
+  @media (min-width: $screen-sm-min) {
+    padding-bottom: 0;
+  }
+  
+  .btn {
+    background-color: transparent;
+    text-align: center;
+    
+    img {
+      width: 50%;
+      height: auto;
+      margin: 10px auto;
+    }
+    
+    // down arrow
+    &:after {
+      content: "\e130";
+      font-family: 'Glyphicons Halflings';
+      font-style: normal;
+      font-weight: normal;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      visibility: hidden;
+      color: $limegreen;
+      font-size: 25px;
+      position: absolute;
+      bottom: -23px;
+      left: calc(50% - 12.5px);
+    }
+    
+    @media (min-width: $screen-sm-min) {
+      img {
+        margin: 10px;
+      }
+      // inline block background looks bad
+      // just leaving them off mobile
+      &:hover {
+        background-color: rgba(white, 0.1);
+        transition: background 0.15s ease-in-out;
+      }
+      &:active,
+      &.active {
+        background-color: $limegreen;
+        transition: background 0.15s ease-in-out;
+      }
+      
+      // a faux equals sign
+      &:after {
+        content: '';
+        display: block;
+        height: 15px;
+        width: 30px;
+        border-top:    5px solid $orange;
+        border-bottom: 5px solid $orange;
+        position: absolute;
+        top: calc(50% - 7.5px);
+        right: 20px;
+        left: auto;
+        visibility: hidden;
+      }
+    }
+    &:active,
+    &.active {
+      box-shadow: none;
+      &:after {
+        // show the arrow or equals sign
+        visibility: visible;
+        transition: visibility 0.15s ease-in-out;
+      }
+    }
+    
+  }
+  // Not mobile-first since I'm overriding bootstrap default behavior
+  @media (max-width: $screen-xs-max) {
+    .btn {
+      display: inline-block;
+      width: 32%;
+    }
+  }
+  
+}
+.saved-outline {
+  padding: 5px 0;
+  margin-bottom: 10px;
+  background: $orange;
+}
+img.kittens {  width: 100%; }
+.footer-copy {
+  max-width: 650px;
+  margin: 0 auto;
+}
